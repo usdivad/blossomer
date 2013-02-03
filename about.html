@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>about</title>
+<link rel="stylesheet" href="style.css">
+<div id="top">
+<h1><a href="index.html" class="header">blossomer</a></h1>
+<i class="subheader">"imitation is the sincerest form of flattery"</i>
+</div>
+</head>
+<body>
+<img height="0" src="img/thumb.jpg">
+<br><br><br><br>
+<b>Blossomer</b> is a probabilistic melody maker by <a href="http://www.columbia.edu/~dds2135/" target="_blank">David Su</a>. It takes as input a single voice of melody (represented by notes with pitch and rhythm attributes), performs single-order Markov chain analysis to calculate probabilities, then outputs an infinitely recurring melody generated using a simple sine wave.<br><br>
+
+Despite the program's primitivity you can still hear it churn out something "new" while retaining the original "flavor" of a melody. Additionally, the different methods of playback generation yield noticeably different results. Check out the to-do list below for plans on making Blossomer more powerful!<br><br>
+
+Piano keys adapted from Peter Coles' <a href="http://mrcoles.com/piano/" target="_blank">JavaScript Piano</a>. BPM tap button adapted from Rich Reel's <a href="http://www.all8.com/tools/bpm.htm" target="_blank">Tap for BPM</a>. MIDI to Hz formula taken from <a href="http://subsynth.sourceforge.net/midinote2freq.html" target="_blank">Subsynth</a>.
+
+<br><br><br>
+<u>Future features (to-do list):</u><br>
+- More advanced methods of analysis, especially the ability to take into account higher levels of structure (e.g. groups of notes as phrases, 8-bar structures, overall musical form) as well as melodic variation and embellishment<br>
+- On that note, a better sense of rhythmic cognizance<br>
+- Capability to "mix" different melodies by combining their probability tables<br>
+- Addition of "noise"/chaos to control how far away to stray from the original melody<br>
+- Alternate methods of melodic generation such as those based purely on intervallic relationships or talea + color extraction<br>
+- A more robust audio interface (beyond a simple sine wave)<br>
+- Ability to easily re-blossom the probabilistically generated melodies<br>
+- Control of output size, rather than an infinitely recurring melody<br><br><br>
+<i><u>log:</u><br>
+1/21/13: += auto input generator, 2 new playback generation methods, playback visualizer<br>
+1/10/13: first build</i>
+
+<br><br>
+<!--- Incorporation of harmonic analysis (e.g. chord tones, common progressions)-->
+<br><br><br>
+<a href="about.html">about</a> | <a href="index.html">index</a> | <a href="faq.html">faq</a> | 
+<a href="mailto:dds2135@columbia.edu?subject=Blossomer&body=Hello!">contact</a>
+</body>
+</html>

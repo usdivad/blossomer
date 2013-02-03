@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>melody</title>
+<link rel="stylesheet" href="style.css">
+<div id="top">
+<h1><a href="index.html" class="header">blossomer</a></h1>
+<i class="subheader">"imitation is the sincerest form of flattery"</i>
+</div>
+</head>
+<body>
+<img height="0" src="img/thumb.jpg">
+<br><br><br><br>
+<u>Melody playback generation type:</u><br>
+<form id="gType">
+<input type="radio" name="g" value="1">Markov chain (note-by-note)<br>
+<input type="radio" name="g" value="2" checked>Markov chain (separate pitch and rhythm sets)<br>
+<input type="radio" name="g" value="3">Note frequency of occurrence<input type="radio" name="g" value="0" id="radioStop"><br>
+</form>
+<div class="br1"></div>
+<input type="Button" class="playbackButton" value="Start" onClick="play();">
+<input type="Button" class="playbackButton" value="STOP!" onClick="stop();">
+<br>
+<!--(<a href="javascript:window.close();">close</a> window to end playback)-->
+<br><br>
+Click the text box below to copy this page's URL for sharing:<br>
+<input type="text" class="textBox" id="myUrl" value="" onClick="selectAll(this.id);">
+<br><br><br>
+<div id="playPno">
+	<!-- C3 - B3 -->
+	<div class="key" id="n48"></div>
+	<div class="key black" id="n49"></div>
+	<div class="key" id="n50"></div>
+	<div class="key black" id="n51"></div>
+	<div class="key" id="n52"></div>
+	<div class="key" id="n53"></div>
+	<div class="key black" id="n54"></div>
+	<div class="key" id="n55"></div>
+	<div class="key black" id="n56"></div>
+	<div class="key" id="n57"></div>
+	<div class="key black" id="n58"></div>
+	<div class="key" id="n59"></div>
+	<!-- C4 (middle C) - B4 -->
+	<div class="key" id="n60"></div>
+	<div class="key black" id="n61"></div>
+	<div class="key" id="n62"></div>
+	<div class="key black" id="n63"></div>
+	<div class="key" id="n64"></div>
+	<div class="key" id="n65"></div>
+	<div class="key black" id="n66"></div>
+	<div class="key" id="n67"></div>
+	<div class="key black" id="n68"></div>
+	<div class="key" id="n69"></div>
+	<div class="key black" id="n70"></div>
+	<div class="key" id="n71"></div>
+	<!-- C5 - B5 -->
+	<div class="key" id="n72"></div>
+	<div class="key black" id="n73"></div>
+	<div class="key" id="n74"></div>
+	<div class="key black" id="n75"></div>
+	<div class="key" id="n76"></div>
+	<div class="key" id="n77"></div>
+	<div class="key black" id="n78"></div>
+	<div class="key" id="n79"></div>
+	<div class="key black" id="n80"></div>
+	<div class="key" id="n81"></div>
+	<div class="key black" id="n82"></div>
+	<div class="key" id="n83"></div>
+	<!-- C6 -->
+	<!--
+	<div class="key" id="n84"></div>
+	-->
+	<!--<div class="key" id="n0"></div>-->
+</div>
+<br><br><br>
+<u>Melody Analysis</u>&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="Button" class="playbackButton" value="Get RTcmix script" onClick="var rt = window.open(); rt.document.write(toRtcmix(allRanges,bpm));"><br><br>
+<script type="text/javascript" charset="UTF-8" src="Analysis.js"></script>
+<script type="text/javascript" charset="UTF-8" src="Input.js"></script>
+<script type="text/javascript" charset="UTF-8" src="Performance.js"></script>
+<script language="javascript" type="text/javascript">
+//class name for display
+var CLASS_NAME = "analysis";
+document.write('<div class="' + CLASS_NAME + '">');
+
+//analysis/generation type const vars
+var STOP = 0;
+var MARKOV_NOTE = 1;
+var MARKOV_PR = 2;
+var FREQ_OCCUR = 3;
+var NRANGE = 0; //notes
+var PRANGE = 1; //pitch
+var RRANGE = 2; //rhythm
+
+//INSTANCE VARS
+var notesRaw = queryStr("notesIn");
+document.write("Note set: "+notesRaw+"<br>");
+var bpm = queryStr("bpmIn");
+document.write("BPM: "+bpm+"<br>");
+var notesData = [];
+var start;
+toNotes(notesData, notesRaw);
+start = notesData[0];
+var allRanges = markov(notesData);
+var notesRange = allRanges[NRANGE];
+var pRange = allRanges[PRANGE];
+var rRange = allRanges[RRANGE];
+
+//document.write(toRtcmix(allRanges, bpm));
+
+
+playNote(start, bpm, MARKOV_PR, allRanges);
+//playTone(500);
+
+document.getElementById("myUrl").value = window.location.href;
+
+//rtcmix script
+
+//end <div>
+document.write("</div>");
+
+function stop()
+{
+	var g = document.getElementById("gType").g;
+	/*for (var i=0;i<g.length;i++)
+	{
+		g[i].checked = false;
+	}*/
+	var last = g.length-1;
+	g[last].checked = true; //last one is stop
+}
+function play()
+{
+	var g = document.getElementById("gType").g;
+	var last = g.length-1;
+	if (g[last].checked) {
+		g[0].checked = true;
+		playNote(start, bpm, MARKOV_PR, allRanges);
+	}
+}
+
+function selectAll(id)
+{
+	document.getElementById(id).focus();
+	document.getElementById(id).select();
+}
+
+
+//document.write(notes[0][0]);
+
+</script>
+
+<!--
+<input type="Button" value="start" onClick="stopTone(); start();">
+<input type="Button" value="STOP!" onClick="stopTone();">
+-->
+<br><br>
+<a href="about.html">about</a> | <a href="index.html">index</a> | <a href="faq.html">faq</a> | 
+<a href="mailto:dds2135@columbia.edu?subject=Blossomer&body=Hello!">contact</a>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>blossomer</title>
+<link rel="stylesheet" href="style.css">
+<div id="top">
+<h1><a href="index.html" class="header">blossomer</a></h1>
+<i class="subheader">"imitation is the sincerest form of flattery"</i>
+</div>
+</head>
+
+<body>
+<img height="0" src="img/thumb.jpg">
+<script type="text/javascript" charset="UTF-8" src="Input.js"></script>
+<script type="text/javascript" charset="UTF-8" src="Analysis.js"></script>
+<script type="text/javascript" charset="UTF-8" src="Performance.js"></script>
+<script type="text/javascript" charset="UTF-8" src="Main.js"></script>
+<script language="javascript" type="text/javascript">
+
+</script>
+<div class="hidden">"imitation is the sincerest form of flattery"</div>
+
+<br><br><br>
+<p><b>Automatic Input</b><br><br>
+Have the computer generate an input melody by choosing a scale base from the drop-down menu below.<br>(At the moment, this part uses a much more rudimentary method than the actual "blossoming" portion.)<div class="br2"></div>
+<select id="gSelect">
+<option value="diatonic">Diatonic (white keys)</option>
+<option value="pentatonic">Pentatonic (black keys)</option>
+<option value="chromatic">Chromatic (all keys)</option>
+</select>
+<input type="Button" value="Generate + BLOSSOM!" class="playbackButton" id="gBlossom" onClick="generateGet(document.getElementById('gSelect').value); submitForm();"><br><br><br></p>
+<p><b>Manual Input</b><br><br>
+Start by entering the melody (or any old sequence of notes) you'd like to "blossom".<br><br>
+To insert a note, pick a <b>rhythmic duration</b>...
+<br>
+<div class="rhythmPick" id="s" onClick="rSet(this.id);"></div>
+<div class="rhythmPick" id="e" onClick="rSet(this.id);"></div>
+<div class="rhythmPick" id="t" onClick="rSet(this.id);"></div>
+<div class="rhythmPick" id="q" onClick="rSet(this.id);"></div>
+<div class="rhythmPick" id="o" onClick="rSet(this.id);"></div>
+<div class="rhythmPick" id="h" onClick="rSet(this.id);"></div>
+<div class="rhythmPick" id="d" onClick="rSet(this.id);"></div>
+<div class="rhythmPick" id="w" onClick="rSet(this.id);"></div>
+<br>
+<rKeys>s e t q o h d w</rKeys>
+<br><br>
+... followed by a <b>pitch value</b>:<br><br>
+<div id="pno">
+	<!-- C3 - B3 -->
+	<div class="key" id="n48" onClick="append(document.getElementById('notesIn'), this.id);"></div>
+	<div class="key black" id="n49" onClick="append(document.getElementById('notesIn'), this.id);"></div>
+	<div class="key" id="n50" onClick="append(document.getElementById('notesIn'), this.id);"></div>
+	<div class="key black" id="n51" onClick="append(document.getElementById('notesIn'), this.id);"></div>
+	<div class="key" id="n52" onClick="append(document.getElementById('notesIn'), this.id);"></div>
+	<div class="key" id="n53" onClick="append(document.getElementById('notesIn'), this.id);"></div>
+	<div class="key black" id="n54" onClick="append(document.getElementById('notesIn'), this.id);"></div>
+	<div class="key" id="n55" onClick="append(document.getElementById('notesIn'), this.id);"></div>
+	<div class="key black" id="n56" onClick="append(document.getElementById('notesIn'), this.id);"></div>
+	<div class="key" id="n57" onClick="append(document.getElementById('notesIn'), this.id);"></div>
+	<div class="key black" id="n58" onClick="append(document.getElementById('notesIn'), this.id);"></div>
+	<div class="key" id="n59" onClick="append(document.getElementById('notesIn'), this.id);"></div>
+	<!-- C4 (middle C) - B4 -->
+	<div class="key" id="n60" onClick="append(document.getElementById('notesIn'), this.id);"></div>
+	<div class="key black" id="n61" onClick="append(document.getElementById('notesIn'), this.id);"></div>
+	<div class="key" id="n62" onClick="append(document.getElementById('notesIn'), this.id);"></div>
+	<div class="key black" id="n63" onClick="append(document.getElementById('notesIn'), this.id);"></div>
+	<div class="key" id="n64" onClick="append(document.getElementById('notesIn'), this.id);"></div>
+	<div class="key" id="n65" onClick="append(document.getElementById('notesIn'), this.id);"></div>
+	<div class="key black" id="n66" onClick="append(document.getElementById('notesIn'), this.id);"></div>
+	<div class="key" id="n67" onClick="append(document.getElementById('notesIn'), this.id);"></div>
+	<div class="key black" id="n68" onClick="append(document.getElementById('notesIn'), this.id);"></div>
+	<div class="key" id="n69" onClick="append(document.getElementById('notesIn'), this.id);"></div>
+	<div class="key black" id="n70" onClick="append(document.getElementById('notesIn'), this.id);"></div>
+	<div class="key" id="n71" onClick="append(document.getElementById('notesIn'), this.id);"></div>
+	<!-- C5 - B5 -->
+	<div class="key" id="n72" onClick="append(document.getElementById('notesIn'), this.id);"></div>
+	<div class="key black" id="n73" onClick="append(document.getElementById('notesIn'), this.id);"></div>
+	<div class="key" id="n74" onClick="append(document.getElementById('notesIn'), this.id);"></div>
+	<div class="key black" id="n75" onClick="append(document.getElementById('notesIn'), this.id);"></div>
+	<div class="key" id="n76" onClick="append(document.getElementById('notesIn'), this.id);"></div>
+	<div class="key" id="n77" onClick="append(document.getElementById('notesIn'), this.id);"></div>
+	<div class="key black" id="n78" onClick="append(document.getElementById('notesIn'), this.id);"></div>
+	<div class="key" id="n79" onClick="append(document.getElementById('notesIn'), this.id);"></div>
+	<div class="key black" id="n80" onClick="append(document.getElementById('notesIn'), this.id);"></div>
+	<div class="key" id="n81" onClick="append(document.getElementById('notesIn'), this.id);"></div>
+	<div class="key black" id="n82" onClick="append(document.getElementById('notesIn'), this.id);"></div>
+	<div class="key" id="n83" onClick="append(document.getElementById('notesIn'), this.id);"></div>
+	<!-- C6 -->
+	<!--
+	<div class="key" id="n84" onClick="append(document.getElementById('notesIn'), this.id);"></div>
+	-->
+	<div class="key" id="n0" onClick="append(document.getElementById('notesIn'), this.id);"></div>
+</div> 
+(click the key with a rest symbol to insert a rest instead of a note)
+<br><br><br>
+The box below should fill up with every note you add. If you've made a mistake, click "Delete Last Note".<br>
+Click "Play!" to run through the entire sequence of notes.<br>
+<form name="input" id="inputForm" target="_blank" action="melody.html" method="get">
+<textarea type="text/css" name="notesIn" class="textBox" id="notesIn" wrap="off"></textarea><br>
+<input type="Button" value="Play!" class="playbackButton" id="play" onClick="playMelody();">
+<input type="Button" value="Delete Last Note" class="playbackButton" id="deleteLast" onClick="deleteLastNote();"><br>
+<br><br>
+Don't forget to enter a tempo!<br>
+<b>BPM: </b><input type="text" class="textBox" name="bpmIn" id="bpmIn"> <input type="Button" value="Tap" class="playbackButton" id="tapper" onClick="TapForBPM();"><br><br>
+Once you're done setting up the melody, press the button below:<br><br>
+<input type="submit" class="playbackButton" id="blossom" value="BLOSSOM!"><br>
+</form>
+</p>
+<br><br>
+Here are some existing melodies for you to try out:<br>
+<a href="melody.html?notesIn=74d76e79h81h76d79e74h69h71w69q71q67q69q71q69q71h76q79q76q74q71d74e76q79q74q76q74q71q69w74q76q74q71q69q71q69q67q76d79e81q83q79w79h81q83q79h81q83q79q83q81q83q79w79h81q83q79q81q79q76q74q71q74q76q79w81q83q81q79q76d79e81q83q79q81q79q76q74w71q74q69q71q74w74q79q76q74q71w69q71q67q69q71q69q71h76q79q76q74q71d74e76q79q74q76q74q71q69w74q76q74q71q69q71q69q67q76d79e81q83q79w&bpmIn=144" target="_blank">Peach Blossoms (traditional Chinese song)</a><br>
+<a href="melody.html?notesIn=43s50s59s57s59s50s59s50s43s50s59s57s59s50s59s50s43s52s60s59s60s52s60s52s43s52s60s59s60s52s60s52s43s54s60s59s60s54s60s54s43s54s60s59s60s54s60s54s43s55s59s57s59s55s59s55s43s55s59s57s59s55s59s54s43s52s59s57s59s55s54s55s52s55s54s55s47s50s49s47s49s55s57s55s57s55s57s55s49s55s57s55s57s55s57s55s54s57s62s61s62s57s55s57s54s57s55s57s50s54s52s50s40s47s55s54s55s47s55s47s40s47s55s54s55s47s55s47s40s49s50s52s50s49s47s45s55s54s52s62s61s59s57s55s54s52s50s62s57s62s54s57s50s52s54s57s55s54s52s50s56s50s53s52s53s50s56s50s59s50s53s52s53s50s56s50s48s52s57s59s60s57s52s50s48s52s57s59s60s57s54s52s51s54s51s54s57s54s57s54s51s54s51s54s57s54s57s54s55s54s52s55s54s55s57s54s55s54s52s50s48s47s45s43s42s48s50s48s50s48s50s48s42s48s50s48s50s48s50s48s43s47s53s52s53s47s53s47s43s47s53s52s53s47s53s47s43s48s52s50s52s48s52s48s43s48s52s50s52s48s52s48s43s54s60s59s60s54s60s54s43s54s60s59s60s54s60s54s43s50s59s57s59s55s54s52s50s48s47s45s43s42s40s38s37s45s52s54s55s52s54s55s37s45s52s54s55s52s54s55s36s45s50s52s54s50s52s54s36s45s50s52s54s50s52s54s36s45s50s54s59s61s62t45s47s48s50s52s54s55s57s54s50s52s54s55s57s59s60s57s54s55s57s59s60s62s63s62s61s62s62s60s59s60s60s57s54s52s50s45s47s48s38s45s50s54s57s59s60s57s59s55s50s48s47s43s45s47s38s43s47s50s55s57s59s55s61s58s57s59s59s57s56s57s57s55s54s55s55s52s49s47s45s48s52s55s57s61s62s61s62s57s54s52s54s57s50s54s45s50s49s47s45s43s42s40s38e60s59s57s55s54s52s50s60s59s57s55s54s52s50s48s59s57s55s54s52s50s48s47s57s55s54s52s50s48s47s45s55s54s52s54s57s50s57s52s57s54s57s55s57s52s57s54s57s50s57s55s57s52s57s54s57s50s57s54s57s52s57s54s57s50s57s52s57s54s57s55s57s57s57s59s57s50s57s57s57s59s57s60s57s50s57s59s57s60s57s62s57s57s57s60s57s59s57s60s57s57s57s59s57s57s57s59s57s55s57s57s57s55s57s57s57s54s57s55s57s54s57s55s57s52s57s54s57s50s57s53s50s54s50s55s50s56s50s57s50s58s50s59s50s60s50s61s50s62s50s63s50s64s50s65s50s66s50s67s59s50s59s67s59s67s59s67s59s50s59s67s59s67s59s67s57s50s57s67s57s67s57s67s57s50s57s67s57s67s57s66s60s50s60s66s60s66s60s60s66s50s60s66s60s66s60s67w&bpmIn=54" target="_blank">J.S. Bach - Cello Suite No. 1 in G major, BWV 1007</a><br>
+<a href="melody.html?notesIn=54s0s54s54s57s54s0s49e49s49s49s49s49s52s53s54s0s54s54s57s54s0s49e49s49s49s49s49s52s53s54e54s54s57s54s0s49e49s49s49s49s49s52s53s54e54s54s57s54s0s49e49s49s49s49s49s52s57s&bpmIn=90" target="_blank">Fugazi - bassline from "Waiting Room"</a><br>
+<a href="melody.html?notesIn=0q71q71q71q71q71q69q71q0q71q71q71q71q71q69q71q0q71q71q71q71q71q69q69q0q69q69q67q67o74o71q0q71q71q71q71q71q69q71q0q71q71q71q71q71q69q71q0q71q71q71q71q71q69q69q0q69q69q67q67o74o71q0h74h74q71e69e0e67e0q74h74h74q71e69e0e67e0q74h74h74q71e69e0e67e0q79q79q79q79q79q79q81q83q0h79h71e74e0e79q71o0d71q71e74e0e83o79q0d79q83q84q83q79q0d79q83q81q81q79q0h79h71e74e0e79q71o0d71q71q74q83d79q0q79q83q84q83q79q0d79q83q81q81q79q0h79h71e74e0e79q71o0d71q71e74e0e83o79q0d79q83q84q83q79q0d79q83q81q81q79q0h79h71e74e0e79q71o0d71q71q74q83d79q0q79q83q84q83q79q0d79q83q81q81q79q0q79q83q81q81q79q79q76q74q74q74q74q81h79h0q74q74q74q81h79h0q74q74q74q81h81h79h0h0q79q83q81q81q79q79q76q74q74q74q74q81h79h0q74q74q74q81h79h0q74q74q74q81h81h79h0h&bpmIn=240" target="_blank">Carly Rae Jespen - "Call Me Maybe"</a><br>
+<a href="melody.html?notesIn=0q71q71q71q71q71q69q71q0q71q71q71q71q71q69q71q0q71q71q71q71q71q69q69q0q69q69q67q67o74o71q&bpmIn=240" target="_blank">"Call Me Maybe" verse only</a><br>
+<a href="melody.html?notesIn=0h74h74q71e69e0e67e0q74h74h74q71e69e0e67e0q74h74h74q71e69e0e67e0q79q79q79q79q79q79q81q83q&bpmIn=240" target="_blank">"Call Me Maybe" prechorus only</a><br>
+<a href="melody.html?notesIn=0h79h71e74e0e79q71o0d71q71e74e0e83o79q0d79q83q84q83q79q0d79q83q81q81q79q0h79h71e74e0e79q71o0d71q71q74q83d79q0q79q83q84q83q79q0d79q83q81q81q79q&bpmIn=240" target="_blank">"Call Me Maybe" chorus only</a><br>
+<a href="melody.html?notesIn=0q79q83q81q81q79q79q76q74q74q74q74q81h79h0q74q74q74q81h79h0q74q74q74q81h81h79h0h&bpmIn=240" target="_blank">"Call Me Maybe" middle eight only</a><br>
+<a href="melody.html?notesIn=58q62q65o0e63q67e70e0q65h67q63q65q62q63e60e0o65q67e68q65e67q68q0o65e67e68q65e67q68q0h0w58q62q65o0e63q67e70e0q65h67q63q65q62q63e60e0o65q67e68q65e67q68q0o65e67e68q65e67q68q0h0d0e62e64e66q62e64q66q0o62e64e66q62e64q66q0h0d0e62e64e66q62e64q66q0o62e64e66q62e64q66q68q70q71q0d58q62q65o0e63q67e70e0q65h67q63q65q62q63e60e0o65q67e68q65e67q68q0o65e67e68q65e67q68q0h0w&bpmIn=280" target="_blank">Thelonious Monk - "Rhythm-a-Ning"</a><br>
+<a href="melody.html?notesIn=58q62q65o0e63q67e70e0q65h67q63q65q62q63e60e0o65q67e68q65e67q68q0o65e67e68q65e67q68q0h0w&bpmIn=280" target="_blank">"Rhythm-a-Ning" A section only</a><br>
+<a href="melody.html?notesIn=64e66q62e64q66q0o62e64e66q62e64q66q0h0d0e62e64e66q62e64q66q0o62e64e66q62e64q66q68q70q71q0d&bpmIn=280" target="_blank">"Rhythm-a-Ning" B section only</a><br>
+<a href="melody.html?notesIn=60o62e64o60e64q60q64h62o64e65e65e64e62e65w64o65e67o64e67q64q67h65o67e69e69e67e65e69w67o60e62e64e65e67e69w69o62e64e66e67e69e71h71o64e66e68e69e71e72d72e71e69q65q71q67q72q67q64q62q&bpmIn=172" target="_blank">Rodgers & Hammerstein - "Do Re Mi"</a><br>
+<a href="melody.html?notesIn=60q60q62q64q60q64q62h60q60q62q64q60h59h60q60q62q64q65q64q62q60q59q55q57q59q60h60h57o59e57q55q57q59q60h55o57e55q53q52h55h57o59e57q55q57q59q60q57q55q60q59q62q60h60h&bpmIn=144" target="_blank">Yankee Doodle</a><br>
+<a href="melody.html?notesIn=53s53s0e0t53s0s53s0t53s0o53s53s0t53s0t53s0t53s53s0q53s0s53s0q53s0q53s0s53s0s53s53s53s0s53s0s53s0e53s0s53s0s53s0s53s0e53s53s0o53s0s53s0t53s0t53s0s48s0s48s&bpmIn=120" target="_blank">Heernt - "Locked in a Basement"</a><br><br>
+There are also a couple more in the <a href="faq.html">FAQ</a> section, but it's much more fun if you do it yourself!
+<!--footer-->
+<br><br><br>
+<a href="about.html">about</a> | <a href="index.html">index</a> | <a href="faq.html">faq</a> |  <a href="mailto:dds2135@columbia.edu?subject=Blossomer&body=Hello!">contact</a>
+</body>
+</html>
