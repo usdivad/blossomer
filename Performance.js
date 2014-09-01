@@ -21,6 +21,8 @@ catch(e)
 }
 
 var oscillator = context.createOscillator();
+oscillator.frequency.value = 0;
+oscillator.start();
 
 //counter of how many stopTone()'s are scheduled;
 //if futureStop==1, means I'm the only stopTone()
@@ -265,16 +267,16 @@ function setBPM(tempo)
 //play a single frequency w/ sine wave. use stopTone() to shut it up
 function playTone(freq)
 {	
-	//oscillator.noteOn && oscillator.noteOn(1);
-	oscillator.noteOff(0);
+	//oscillator.start && oscillator.start(1);
+	oscillator.stop(0);
 	if (freq != 0)
 	{
 		oscillator = context.createOscillator();
 		oscillator.type = 0;
 		oscillator.frequency.value = freq;
 		oscillator.connect(context.destination);
-		//oscillator.noteOn && oscillator.noteOn(0);
-		oscillator.noteOn(0);
+		//oscillator.start && oscillator.start(0);
+		oscillator.start(0);
 		//console.log(freq);
 	}
 }
@@ -296,7 +298,7 @@ function stopTone()
 {
 	if (futureStop <= 1) //I'm the last stopTone()
 	{
-		oscillator.noteOff(0);
+		oscillator.stop(0);
 		oscillator = context.createOscillator();
 	}
 	
@@ -306,7 +308,7 @@ function stopTone()
 //stops the oscillator NO MATTER WHAT!
 function stopToneAbsolute()
 {
-	oscillator.noteOff(0);
+	oscillator.stop(0);
 	oscillator = context.createOscillator();
 }
 
